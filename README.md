@@ -23,7 +23,8 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) This repository implements a service that provides a RESTful API that implements a CRUD functionality for a list of users. The service is built using NestJS, a progressive Node.js framework TypeScript for building efficient and scalable server-side applications.
+This repository implements a service that provides a RESTful API that implements a CRUD functionality for a list of users. 
+The service is built using [NestJS](https://github.com/nestjs/nest), a progressive Node.js framework TypeScript for building efficient and scalable server-side applications.
 
 ## Project setup
 
