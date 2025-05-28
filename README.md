@@ -71,6 +71,17 @@ $ mau deploy
 
 With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
+## API Documentation
+
+The API documentation is available via Swagger UI. Once the application is running, you can access it at:
+
+```
+http://localhost:3000/api
+```
+
+Swagger UI provides an interactive interface to explore and test all the available endpoints of this service.
+
+
 ## Resources
 
 Check out a few resources that may come in handy when working with NestJS:
