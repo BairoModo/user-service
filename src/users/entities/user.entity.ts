@@ -2,7 +2,7 @@ export class User {
     id: number;    
     email: string;
     password: string;
-    firstNames: string;
+    firstName: string;
     lastName: string;
     phoneNumber: string;
     dateOfBirth: Date;
@@ -17,7 +17,7 @@ export class User {
         id: number,
         email: string,
         password: string,
-        firstNames: string,
+        firstName: string,
         lastName: string,
         phoneNumber: string,
         dateOfBirth: Date,
@@ -29,7 +29,7 @@ export class User {
         this.id = id;
         this.email = email;
         this.password = password;
-        this.firstNames = firstNames;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.dateOfBirth = dateOfBirth;
