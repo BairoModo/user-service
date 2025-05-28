@@ -81,6 +81,28 @@ http://localhost:3000/api
 
 Swagger UI provides an interactive interface to explore and test all the available endpoints of this service.
 
+## Environment Variables
+
+This application uses environment variables for configuration. Create a `.env` file in the root directory to set these variables:
+
+### Available Variables
+
+| Variable | Type | Default | Description |
+|----------|------|---------|-------------|
+| `PORT` | number | `3000` | Port number where the application will run |
+| `EXPORT_OPEN_API` | boolean | `false` | When set to `true`, exports the OpenAPI/Swagger specification as JSON to the console. This JSON can be imported into HTTP clients like Bruno, Postman, or Insomnia for API testing |
+
+### Example .env file
+
+```env
+PORT=3000
+EXPORT_OPEN_API=true
+```
+
+### Usage
+
+- **PORT**: Change this value to run the application on a different port
+- **EXPORT_OPEN_API**: Set to `true` to generate OpenAPI JSON specification in the console output when starting the application. Copy this JSON to import your API endpoints into your preferred HTTP client for testing
 
 ## Resources
 
