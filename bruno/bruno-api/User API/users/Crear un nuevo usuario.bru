@@ -1,0 +1,21 @@
+meta {
+  name: Crear un nuevo usuario
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "hernanbareiro@gmail.com",
+    "firstName": "Hernan",
+    "lastName": "Bareiro",
+    "phoneNumber": "+5493764395046",
+    "dateOfBirth": "1985-07-01"
+  }
+}

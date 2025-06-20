@@ -1,0 +1,262 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+      "/": {
+        "get": {
+          "operationId": "AppController_getHello",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": ""
+            }
+          },
+          "tags": [
+            "App"
+          ]
+        }
+      },
+      "/users": {
+        "post": {
+          "operationId": "UsersController_create",
+          "parameters": [],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateUserDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Usuario creado exitosamente",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Datos inválidos"
+            }
+          },
+          "summary": "Crear un nuevo usuario",
+          "tags": [
+            "users"
+          ]
+        },
+        "get": {
+          "operationId": "UsersController_findAll",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "Lista de usuarios",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "summary": "Obtener todos los usuarios",
+          "tags": [
+            "users"
+          ]
+        }
+      },
+      "/users/{id}": {
+        "get": {
+          "operationId": "UsersController_findOne",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "description": "ID del usuario",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Usuario encontrado",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Usuario no encontrado"
+            }
+          },
+          "summary": "Obtener un usuario por ID",
+          "tags": [
+            "users"
+          ]
+        },
+        "patch": {
+          "operationId": "UsersController_update",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "description": "ID del usuario",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateUserDto"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Usuario actualizado",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Usuario no encontrado"
+            }
+          },
+          "summary": "Actualizar un usuario",
+          "tags": [
+            "users"
+          ]
+        },
+        "delete": {
+          "operationId": "UsersController_remove",
+          "parameters": [
+            {
+              "name": "id",
+              "required": true,
+              "in": "path",
+              "description": "ID del usuario",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Usuario eliminado exitosamente"
+            },
+            "404": {
+              "description": "Usuario no encontrado"
+            }
+          },
+          "summary": "Eliminar un usuario",
+          "tags": [
+            "users"
+          ]
+        }
+      }
+    },
+    "info": {
+      "title": "User API",
+      "description": "User API CRUD",
+      "version": "1.0",
+      "contact": {}
+    },
+    "tags": [
+      {
+        "name": "users",
+        "description": ""
+      }
+    ],
+    "servers": [],
+    "components": {
+      "schemas": {
+        "CreateUserDto": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            },
+            "name": {
+              "type": "string",
+              "example": "John Doe"
+            }
+          },
+          "required": [
+            "email",
+            "name"
+          ]
+        },
+        "User": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "507f1f77bcf86cd799439011"
+            },
+            "email": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            },
+            "name": {
+              "type": "string",
+              "example": "John Doe"
+            },
+            "createdAt": {
+              "format": "date-time",
+              "type": "string",
+              "example": "2023-01-01T00:00:00.000Z"
+            },
+            "updatedAt": {
+              "format": "date-time",
+              "type": "string",
+              "example": "2023-01-01T00:00:00.000Z"
+            }
+          },
+          "required": [
+            "id",
+            "email",
+            "name",
+            "createdAt",
+            "updatedAt"
+          ]
+        },
+        "UpdateUserDto": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "example": "john.doe@example.com"
+            },
+            "name": {
+              "type": "string",
+              "example": "John Doe"
+            }
+          }
+        }
+      }
+    }
+  }
