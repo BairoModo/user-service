@@ -90,18 +90,43 @@ This application uses environment variables for configuration. Create a `.env` f
 | Variable | Type | Default | Description |
 |----------|------|---------|-------------|
 | `PORT` | number | `3000` | Port number where the application will run |
+| `MONGODB_URI` | string | `mongodb://localhost:27017/user-service` | MongoDB connection string |
 | `EXPORT_OPEN_API` | boolean | `false` | When set to `true`, exports the OpenAPI/Swagger specification as JSON to the console. This JSON can be imported into HTTP clients like Bruno, Postman, or Insomnia for API testing |
 
 ### Example .env file
 
 ```env
-PORT=3000
+# Application Configuration
+PORT=3003
+
+# Database Configuration
+MONGODB_URI=mongodb://localhost:27017/users
+
+# Development Configuration
 EXPORT_OPEN_API=true
+```
+
+### MongoDB Configuration Examples
+
+#### Local MongoDB (Development)
+```env
+MONGODB_URI=mongodb://localhost:27017/users
+```
+
+#### MongoDB with Authentication
+```env
+MONGODB_URI=mongodb://username:password@localhost:27017/users?authSource=admin
+```
+
+#### MongoDB Atlas (Cloud)
+```env
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/users?retryWrites=true&w=majority
 ```
 
 ### Usage
 
 - **PORT**: Change this value to run the application on a different port
+- **MONGODB_URI**: Set the MongoDB connection string. For development, you can use a local MongoDB instance without authentication
 - **EXPORT_OPEN_API**: Set to `true` to generate OpenAPI JSON specification in the console output when starting the application. Copy this JSON to import your API endpoints into your preferred HTTP client for testing
 
 ## Resources
